@@ -10,8 +10,6 @@ export const Container = styled.div`
 
   h2 {
     color: #022754;
-    font-weight: 800;
-    font-size: 60px;
     font-weight: 900;
     text-align: center;
     margin: 30px 0 20px;
@@ -28,13 +26,12 @@ export const Content = styled.div`
 
   p {
     text-align: justify;
-    font-size: 27px;
-    height: 300px;
-    width: 700px;
+    width: 40vw;
   }
 
   img {
-    height: 400px;
+    max-height: 50vh;
+    max-width: 50vw;
     border-radius: 15px;
     box-shadow: 5px 5px 20px -1px #555;
   }
@@ -42,36 +39,17 @@ export const Content = styled.div`
   span {
     display: inline-block;
     margin-bottom: 10px;
-    font-size: 25px;
     font-weight: bold;
     color: #022754;
   }
-`;
 
-export const ContentMissionVisionValues = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 40px;
-  max-width: 100vw;
-  padding: 10px;
-
-  div {
+  @media (max-width: 1120px) {
     display: flex;
-    flex-direction: column;
     align-items: center;
-  }
+    flex-direction: column;
 
-  .iconsMissionVisionValues {
-    width: 90px;
-  }
-
-  p {
-    background-color: #022754;
-    color: #fff;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    font-size: 27px;
+    p {
+      width: 70vw;
+    }
   }
 `;

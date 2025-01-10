@@ -13,7 +13,6 @@ export const Container = styled.div`
   .titleWhite {
     color: #fff;
     text-align: center;
-    font-size: 50px;
   }
 
   .socialDiv {
@@ -38,6 +37,10 @@ export const Container = styled.div`
       opacity: 0.5;
     }
   }
+
+  .copy {
+    text-align: center;
+  }
 `;
 
 export const FormContainer = styled.form`
@@ -53,7 +56,6 @@ export const FormContainer = styled.form`
 
   h2 {
     margin: 0;
-    font-size: 50px;
   }
 
   div {
@@ -64,7 +66,6 @@ export const FormContainer = styled.form`
     textarea {
       width: 100%;
       padding: 8px;
-      font-size: 14px;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
@@ -90,5 +91,9 @@ export const FormContainer = styled.form`
     &:hover {
       opacity: 0.5;
     }
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
   }
 `;

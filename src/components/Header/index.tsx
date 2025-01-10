@@ -1,60 +1,67 @@
+import { useState } from "react";
 import Logo from "../../assets/logo_white_transparent.png";
 import { Container } from "./styles";
 import { Link } from "react-scroll";
 
 export function Header() {
-	return (
-		<Container>
-			<Link
-				to="home"
-				smooth={true}
-				duration={900}
-				offset={-70}
-				className="header-link"
-			>
-				<img alt="logo" src={Logo} />
-			</Link>
+  const [menuOpen, setMenuOpen] = useState(false);
 
-			<div>
-				<Link
-					to="home"
-					smooth={true}
-					duration={900}
-					offset={-70}
-					className="header-link"
-				>
-					Início
-				</Link>
-				<Link
-					to="office"
-					smooth={true}
-					duration={900}
-					offset={-70}
-					className="header-link"
-				>
-					Escritório
-				</Link>
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
-				<Link
-					to="performance"
-					smooth={true}
-					duration={900}
-					offset={-70}
-					className="header-link"
-				>
-					Atuação
-				</Link>
+  const scrollProps = {
+    smooth: true,
+    duration: 900,
+    offset: -70,
+  };
 
-				<Link
-					to="contacts"
-					smooth={true}
-					duration={900}
-					offset={-70}
-					className="header-link"
-				>
-					Contatos
-				</Link>
-			</div>
-		</Container>
-	);
+  return (
+    <Container>
+      <Link to="home" {...scrollProps} className="header-link">
+        <img alt="logo" src={Logo} />
+      </Link>
+
+      {/* Botão do menu hamburger */}
+      <button
+        className={`hamburger ${menuOpen ? "open" : ""}`}
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+      >
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </button>
+
+      {/* Menu */}
+      <ul className={`menu ${menuOpen ? "show" : ""}`}>
+        <li>
+          <Link to="home" {...scrollProps} onClick={() => setMenuOpen(false)}>
+            Início
+          </Link>
+        </li>
+        <li>
+          <Link to="office" {...scrollProps} onClick={() => setMenuOpen(false)}>
+            Escritório
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="performance"
+            {...scrollProps}
+            onClick={() => setMenuOpen(false)}
+          >
+            Atuação
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="contacts"
+            {...scrollProps}
+            onClick={() => setMenuOpen(false)}
+          >
+            Contatos
+          </Link>
+        </li>
+      </ul>
+    </Container>
+  );
 }
