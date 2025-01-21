@@ -49,7 +49,7 @@ export function Header() {
             {...scrollProps}
             onClick={() => setMenuOpen(false)}
           >
-            Atuação
+            Atuaçãokk
           </Link>
         </li>
         <li>
